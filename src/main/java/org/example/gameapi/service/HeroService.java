@@ -115,6 +115,9 @@ public Integer powerOfHero(int heroId) {
     log.info("метод расчёта силы вызван, heroId={}", heroId);
     Hero hero = getHeroById(heroId);
     int power = hero.getLevel() * 10 + itemRepository.totalPowerOfHero(heroId);
+    if(power==0){
+        return 0;
+    }
     log.info("сила героя id={} = {}", heroId, power);
     return power;
 }
